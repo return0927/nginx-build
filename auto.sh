@@ -178,5 +178,8 @@ if [ -f "${NGX_SBIN_PATH}.old" ]; then
     fi
     sleep 1
     rm ${NGX_SBIN_PATH}.old
-    systemctl restart nginx
+
+    if [ -x "$(command -v systemctl)" ]; then
+      systemctl restart nginx
+    fi
 fi
